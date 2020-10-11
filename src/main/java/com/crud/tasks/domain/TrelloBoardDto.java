@@ -10,8 +10,4 @@ import lombok.NoArgsConstructor;
 public class TrelloBoardDto {
     private String name;
     private String id;
-
-
-
-
 }
