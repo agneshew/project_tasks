@@ -5,9 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import java.net.URI;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,9 +21,6 @@ public class CreatedTrelloCard {
     @JsonProperty("shortUrl")
     private String shortUrl;
 
-    @JsonProperty("trelloBadgesDto")
-    private TrelloBadgesDto trelloBadgesDto;
-
-
-
+//    @JsonProperty("trelloBadgesDto")
+//    private TrelloBadgesDto trelloBadgesDto;
 }
