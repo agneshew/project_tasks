@@ -31,9 +31,9 @@ public class SimpleEmailServiceTest {
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
 
-        if  (!mail.getToCc().isEmpty()) {
-            mailMessage.setCc(mail.getToCc());
-        }
+//        if  (!mail.getToCc().isEmpty()) {
+//            mailMessage.setCc(mail.getToCc());
+//        }
 
         //When
         simpleEmailService.send(mail);
