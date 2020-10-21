@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
-	id 'war'
+	//id 'war'
 	id 'idea'
 }
 
@@ -25,9 +25,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.projectlombok:lombok')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('mysql:mysql-connector-java')
+	//compile('mysql:mysql-connector-java')
 	compile('org.springframework.boot:spring-boot-starter-mail:2.3.4.RELEASE')
-	//compile('org.postgresql:postgresql')
+	compile('org.postgresql:postgresql')
 	compile('io.springfox:springfox-swagger2:2.7.0')
 	compile('io.springfox:springfox-swagger-ui:2.7.0')
 
@@ -42,6 +42,6 @@ test {
 	useJUnit()
 }
 
-war {
-	archiveName('crud.war')
-}
+//war {
+//	archiveName('crud.war')
+//}
