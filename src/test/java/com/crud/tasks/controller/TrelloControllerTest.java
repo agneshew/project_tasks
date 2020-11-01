@@ -4,7 +4,7 @@ import com.crud.tasks.domain.CreatedTrelloCardDto;
 import com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.domain.TrelloListDto;
-import com.crud.tasks.facade.TrelloFacade;
+import com.crud.tasks.trello.facade.TrelloFacade;
 import com.crud.tasks.service.TrelloService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

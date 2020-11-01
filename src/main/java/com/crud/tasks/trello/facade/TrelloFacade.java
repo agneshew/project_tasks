@@ -1,4 +1,4 @@
-package com.crud.tasks.facade;
+package com.crud.tasks.trello.facade;
 
 import com.crud.tasks.domain.*;
 import com.crud.tasks.mapper.TrelloMapper;
@@ -10,20 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
+import java.util.stream.Collectors;
 
 @Component
 public class TrelloFacade {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(TrelloFacade.class);
-
     @Autowired
     private TrelloService trelloService;
-
     @Autowired
     private TrelloMapper trelloMapper;
-
     @Autowired
     private TrelloValidator trelloValidator;
 
@@ -32,7 +27,6 @@ public class TrelloFacade {
         List<TrelloBoard> filteredBoards = trelloValidator.validateTrelloBoards(trelloBoards);
         return trelloMapper.mapToBoardsDto(filteredBoards);
     }
-
     public CreatedTrelloCardDto createCard(final TrelloCardDto trelloCardDto) {
         TrelloCard trelloCard = trelloMapper.mapToCard(trelloCardDto);
         trelloValidator.validateCard(trelloCard);
