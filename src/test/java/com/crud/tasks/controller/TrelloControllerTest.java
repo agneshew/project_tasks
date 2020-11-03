@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class TrelloControllerTest {
     @Autowired
     private MockMvc mockMvc;
-    @Autowired
+    @MockBean
     private TrelloService trelloService;
     @MockBean
     private TrelloFacade trelloFacade;
