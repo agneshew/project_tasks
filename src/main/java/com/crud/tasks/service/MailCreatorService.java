@@ -35,18 +35,19 @@ public class MailCreatorService {
         context.setVariable("message", message);
         context.setVariable("tasks_url", "https://agneshew.github.io/");
         context.setVariable("button", "Visit website");
-        context.setVariable("admin_name", adminConfig.getAdminName());
+        context.setVariable("admin_config", adminConfig);
         context.setVariable("add_task", "Add a new task in Trello");
-        context.setVariable("company_name", company.getCompanyName());
-        context.setVariable("company_email", company.getCompanyEmail());
-        context.setVariable("company_phone", company.getCompanyPhone());
+        context.setVariable("company", company);
         context.setVariable("goodbye", "Agnieszka Hewusz");
-
+        context.setVariable("show_button", false);
+        context.setVariable("is_friend", false);
+        context.setVariable("application_functionality", functionality);
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
 
     public String countTaskInTrelloEmail(String message){
         Context context = new Context();
+        context.setVariable("user_config", adminConfig);
         context.setVariable("friend", false);
         context.setVariable("message", message);
         context.setVariable("count_task_url", "http://localhost:8080/v1/trello/getTrelloBoards");
