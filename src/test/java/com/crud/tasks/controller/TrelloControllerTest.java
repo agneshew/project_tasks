@@ -5,7 +5,6 @@ import com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.domain.TrelloListDto;
 import com.crud.tasks.trello.facade.TrelloFacade;
-import com.crud.tasks.service.TrelloService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +34,6 @@ public class TrelloControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @MockBean
-    private TrelloService trelloService;
-    @MockBean
     private TrelloFacade trelloFacade;
 
     @Test
@@ -45,7 +42,7 @@ public class TrelloControllerTest {
         List<TrelloBoardDto> trelloBoards = new ArrayList<>();
         when(trelloFacade.fetchTrelloBoards()).thenReturn(trelloBoards);
         //When & Then
-        mockMvc.perform(get("/v1/trello/getTrelloBoards")
+        mockMvc.perform(get("/v1/trello/boards")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is(200)) //or isOk()
                 .andExpect(jsonPath("$", hasSize(0)));
@@ -59,7 +56,7 @@ public class TrelloControllerTest {
         trelloBoards.add(new TrelloBoardDto("1", "Test task", trelloLists));
         when(trelloFacade.fetchTrelloBoards()).thenReturn(trelloBoards);
         //When & Then
-        mockMvc.perform(get("/v1/trello/getTrelloBoards")
+        mockMvc.perform(get("/v1/trello/boards")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 //Trello board fields
@@ -89,7 +86,7 @@ public class TrelloControllerTest {
         Gson gson = new Gson();
         String jsonContent = gson.toJson(trelloCardDto);
         //When & Then
-        mockMvc.perform(post("/v1/trello/createTrelloCard")
+        mockMvc.perform(post("/v1/trello/cards")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(jsonContent))
